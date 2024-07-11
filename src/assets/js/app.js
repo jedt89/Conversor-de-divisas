@@ -57,13 +57,13 @@ const setListeners = (indicators) => {
           day: 'numeric'
         };
         const { valor, nombre, fecha } = currentIndicator;
+        const parsedValue = valor.toFixed(0)
         currencyName.textContent = nombre;
-        currencyValue.textContent = valor.toFixed(0);
-        currencyUpdate.textContent = new Date(fecha).toLocaleDateString('es-ES', dateConfig);
-
+        currencyValue.textContent = valor.toLocaleString('es-CL');
+        currencyUpdate.textContent = `Fecha de actualización: ${new Date(fecha).toLocaleDateString('es-ES', dateConfig)}`;
         const indicatorHistory = await getIndicators(selectedCode);
         const mappedIndicators = indicatorHistory.map(({ fecha, valor }) => ({
-          fecha: new Date(fecha).toLocaleDateString(),
+          fecha: fecha.split('T')[0], 
           valor
         }));
         generateChart(mappedIndicators.slice(-10));
@@ -85,7 +85,7 @@ const setListeners = (indicators) => {
 
 const convertCurrency = () => {
   const result = currentIndicator.valor * currentMount;
-  totalContainer.textContent = parseFloat(result.toFixed(0));
+  totalContainer.textContent = result.toLocaleString('es-CL');
 };
 
 const generateChart = (history) => {
@@ -98,8 +98,13 @@ const generateChart = (history) => {
       labels: labels,
       datasets: [{
         label: 'Valores',
-        backgroundColor: 'red',
-        data: data
+        data: data,
+        pointRadius: 5,
+        borderColor: 'dodgerblue',
+        borderWidth: 1,
+        pointBackgroundColor: 'orange',
+        pointBorderColor: 'transparent',
+
       }]
     }
   };
