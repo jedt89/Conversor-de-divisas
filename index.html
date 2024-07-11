@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./src/assets/css/style.css" />
+  <script src="https://kit.fontawesome.com/981278a700.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Conversor de divisas</title>
+</head>
+
+<body>
+  <main class="home">
+    <section class="to-do-section">
+      <div class="conversion-container">
+        <div class="global-title">
+          <h1>Conversor de divisas</h1>
+        </div>
+        <div class="input-container">
+          <div>
+            <label>Ingresa una cantidad para su conversión</label>
+            <input class="clp-input" type="text" placeholder="Ingresa una cantidad" />
+          </div>
+          <div>
+            <select class="currency-select">
+              <option value="">Seleccione un indicador</option>
+            </select>
+            <div class="currency-update"></div>
+          </div>
+          <div class="currency-info">
+            <div class="card">
+              <div>
+                <div class="far fa-money-bill-alt"></div>
+                <div class="currency-name"></div>
+              </div>
+              <div>
+                <span>Valor actual:</span>
+                $
+                <span class="currency-value"></span>
+              </div>
+            </div>
+            <div id="chart-container">
+              <canvas id='indicator-chart'></canvas>
+            </div>
+          </div>
+          <div>
+            <button class="conversion-button">Convertir</button>
+            <div class="total-container row-container">
+              <i class="fas fa-coins"></i>
+              <div>Total:</div>
+              <div class="total">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+  <script src="./src/assets/js/app.js"></script>
+</body>
+
+</html>
