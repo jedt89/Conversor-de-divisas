@@ -1,11 +1,7 @@
-body {
-  background: #232946;
-}
-
 * {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
-  color: dodgerblue;
+  color: white;
   transition: all 0.3s linear;
   background-size: cover;
 }
@@ -25,32 +21,34 @@ input,
 select {
   height: 35px;
   width: 100%;
-  border: 1px solid #9cceff;
+  border: 1px solid orange;
   border-radius: 6px;
-  background: aliceblue;
   padding: 0;
   margin-bottom: 5px;
   text-align: center;
+  color: white;
+  background: #232946;
 }
 
 input:focus-visible,
 select:focus-visible {
-  border: 1px solid #9cceff;
   outline: none;
 }
 
 input::placeholder {
-  color: darkgray;
+  color: white;
   padding-left: 5px;
   text-align: center;
 }
 
 i {
   font-size: 40px;
+  margin-bottom: 3px;
 }
 
-i {
-  margin-bottom: 3px;
+option {
+  color: white;
+  background-color: #232946 ;
 }
 
 /* Utils */
@@ -79,10 +77,9 @@ i {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #9cceff;
   border-radius: 10px;
   width: 100%;
-  background-color: white;
+  background-color: #232946;
 
   h1 {
     margin-top: 0;
@@ -109,11 +106,10 @@ i {
   height: 40px;
   width: 100px;
   border-radius: 6px;
-  color: dodgerblue;
-  font-weight: bold;
-  background-color: rgba(40, 201, 55, 0.3);
+  color: white;
+  background-color: #232946;
   cursor: pointer;
-  border: 1px solid rgba(30, 143, 255, 0.2);
+  border: 1px solid orange;
   margin: 20px 0px;
 }
 
@@ -129,6 +125,8 @@ i {
 #chart-container {
   width: 98%;
   max-width: 98%;
+  border-radius: 10px;
+  background-color: #80a3da;
 }
 
 #indicator-chart {
@@ -142,11 +140,11 @@ i {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: aliceblue;
   padding: 10px;
   border-radius: 8px;
   font-size: 12px;
   margin-bottom: 20px;
+  background-color: rgba(128, 163, 218, 0.3);
 
   .fa-money-bill-alt {
     font-size: 40px;
@@ -156,7 +154,7 @@ i {
 .currency-update {
   display: flex;
   justify-content: center;
-  color: darkgray;
+  color: whitesmoke;
   text-align: center;
   font-size: 10px;
   margin-bottom: 20px;
@@ -171,6 +169,7 @@ i {
 .total-container {
   display: flex;
   align-items: center;
+  margin-top: 20px
 }
 
 .total-section {

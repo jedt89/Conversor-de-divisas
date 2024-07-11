@@ -8,6 +8,7 @@ const currencyName = document.querySelector('.currency-name');
 const currencyValue = document.querySelector('.currency-value');
 const currencyUpdate = document.querySelector('.currency-update');
 const totalContainer = document.querySelector('.total');
+const totalSection = document.querySelector('.total-section');
 const canvasContainer = document.getElementById('indicator-chart').getContext('2d');
 
 let currentIndicator = {};
@@ -57,17 +58,18 @@ const setListeners = (indicators) => {
           day: 'numeric'
         };
         const { valor, nombre, fecha } = currentIndicator;
-        const parsedValue = valor.toFixed(0)
         currencyName.textContent = nombre;
         currencyValue.textContent = valor.toLocaleString('es-CL');
         currencyUpdate.textContent = `Fecha de actualización: ${new Date(fecha).toLocaleDateString('es-ES', dateConfig)}`;
         const indicatorHistory = await getIndicators(selectedCode);
         const mappedIndicators = indicatorHistory.map(({ fecha, valor }) => ({
-          fecha: fecha.split('T')[0], 
+          fecha: new Date(fecha).toLocaleDateString(),
           valor
         }));
         generateChart(mappedIndicators.slice(-10));
         showInfo();
+        totalContainer.textContent = 0
+        clpInput.value = ''
       }
     } else {
       hideInfo();
@@ -97,17 +99,41 @@ const generateChart = (history) => {
     data: {
       labels: labels,
       datasets: [{
-        label: 'Valores',
+        label: 'Valores de los últimos 10 días',
         data: data,
-        pointRadius: 5,
-        borderColor: 'dodgerblue',
+        pointRadius: 7,
+        borderColor: 'white',
         borderWidth: 1,
         pointBackgroundColor: 'orange',
         pointBorderColor: 'transparent',
-
+        datalabels: {
+          color: 'white'
+        }
       }]
+    },
+    options: {
+      scales: {
+        y: {
+          ticks: {
+            color: 'white'
+          }
+        },
+        x: {
+          ticks: {
+            color: 'white' 
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        }
+      }
     }
   };
+
 
   if (Chart.getChart(canvasContainer)) {
     Chart.getChart(canvasContainer).destroy();
@@ -118,11 +144,13 @@ const generateChart = (history) => {
 const hideInfo = () => {
   currencyInfo.style.display = 'none';
   currencyUpdate.style.display = 'none';
+  totalSection.style.display = 'none';
 };
 
 const showInfo = () => {
   currencyInfo.style.display = 'flex';
   currencyUpdate.style.display = 'flex';
+  totalSection.style.display = 'flex';
 };
 
 init();
