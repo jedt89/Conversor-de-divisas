@@ -63,7 +63,7 @@ const setListeners = (indicators) => {
 const updateCurrencyInfo = async () => {
   const { valor, nombre, fecha } = currentIndicator;
   currencyName.textContent = nombre;
-  currencyValue.textContent = `$${valor.toLocaleString('es-CL')}`;
+  currencyValue.textContent = `$${parseInt(valor).toLocaleString('es-CL')}`;
   currencyUpdate.textContent = `Fecha de actualización: ${new Date(
     fecha
   ).toLocaleDateString('es-ES', {
@@ -81,13 +81,12 @@ const updateCurrencyInfo = async () => {
   );
   showInfo();
   totalContainer.textContent = '$0';
-  clpInput.value = '';
 };
 
 const convertCurrency = () => {
   if (clpInput.value != '') {
     const result = currentIndicator.valor * currentMount;
-    totalContainer.textContent = `$${result.toLocaleString('es-CL')}`;
+    totalContainer.textContent = `$${parseInt(result).toLocaleString('es-CL')}`;
   }
 };
 
