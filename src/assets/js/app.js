@@ -118,7 +118,7 @@ const generateChart = (history) => {
       devicePixelRatio: window.devicePixelRatio,
       maintainAspectRatio: false,
       scales: {
-        y: { ticks: { color: 'white' } },
+        y: { ticks: { color: 'white', callback: value => '$' + value } },
         x: { ticks: { color: 'white' } }
       },
       plugins: { legend: { labels: { color: 'white' } } }
