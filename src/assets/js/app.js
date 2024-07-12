@@ -28,7 +28,7 @@ const getIndicators = async (indicator) => {
     const data = await response.json();
     return indicator
       ? data.serie || []
-      : Object.values(data).filter((item) => typeof item === 'object');
+      : Object.values(data).filter((item) => typeof item == 'object');
   } catch (error) {
     console.debug('Fetch error', error);
     return [];
@@ -46,7 +46,7 @@ const setListeners = (indicators) => {
   currencySelect.addEventListener('change', async (event) => {
     const selectedCode = event.target.value;
     if (selectedCode != '') {
-      currentIndicator = indicators.find((ind) => ind.codigo === selectedCode);
+      currentIndicator = indicators.find((ind) => ind.codigo == selectedCode);
       if (currentIndicator) {
         updateCurrencyInfo();
       }
