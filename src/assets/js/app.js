@@ -84,7 +84,7 @@ const updateCurrencyInfo = async () => {
 };
 
 const convertCurrency = () => {
-  if (clpInput.value != '') {
+  if (clpInput.value != '' && currencySelect.value != '') {
     const result = currentIndicator.valor * currentMount;
     totalContainer.textContent = `$${parseInt(result).toLocaleString('es-CL')}`;
   }
