@@ -115,7 +115,12 @@ const generateChart = (history) => {
     },
     options: {
       scales: {
-        y: { ticks: { color: 'white' } },
+        y: {
+          ticks: {
+            color: 'white',
+            callback: (value) => '$' + value.toLocaleString('es-CL')
+          }
+        },
         x: { ticks: { color: 'white' } }
       },
       plugins: { legend: { labels: { color: 'white' } } }
