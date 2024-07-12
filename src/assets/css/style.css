@@ -1,30 +1,29 @@
+/* Global styles */
+body {
+  overflow: hidden;
+}
+
 * {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   color: white;
   transition: all 0.3s linear;
-  background-size: cover;
 }
 
 section {
-  padding: 0.5rem;
   display: flex;
   justify-content: center;
   border-radius: 10px;
 }
 
-input {
-  margin-top: 5px;
-}
-
 input,
 select {
   height: 35px;
-  width: 100%;
+  width: 270px;
   border: 1px solid orange;
   border-radius: 6px;
   padding: 0;
-  margin-bottom: 5px;
+  margin: 5px;
   text-align: center;
   color: white;
   background: #232946;
@@ -48,7 +47,7 @@ i {
 
 option {
   color: white;
-  background-color: #232946 ;
+  background-color: #232946;
 }
 
 /* Utils */
@@ -68,8 +67,7 @@ option {
 
 .global-title {
   width: 100%;
-  margin-bottom: 30px;
-  padding: 10px 10px 0px 10px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -80,10 +78,10 @@ option {
   border-radius: 10px;
   width: 100%;
   background-color: #232946;
+}
 
-  h1 {
-    margin-top: 0;
-  }
+.conversion-container h1 {
+  margin-top: 0;
 }
 
 .input-container {
@@ -92,11 +90,14 @@ option {
   align-items: center;
   width: 100%;
   margin-bottom: 20px;
+}
 
-  .input-mount {
-    padding: 10px;
-    text-align: center;
-  }
+.input-container .input-mount {
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .conversion-button {
@@ -110,7 +111,12 @@ option {
   background-color: #232946;
   cursor: pointer;
   border: 1px solid orange;
-  margin: 20px 0px;
+  margin: 20px 0;
+}
+
+.conversion-button:hover {
+  color: #232946;
+  background-color: orange;
 }
 
 .currency-info {
@@ -122,17 +128,17 @@ option {
   margin-bottom: 20px;
   width: 100%;
 }
+
 #chart-container {
-  width: 98%;
-  max-width: 98%;
   border-radius: 10px;
   background-color: #80a3da;
+  margin: 30px 10px 0px 10px;
+  min-width: 270px;
 }
 
 #indicator-chart {
   width: 100% !important;
-  max-width: 100% !important;
-  height: 100% !important;
+  height: auto !important;
 }
 
 .card {
@@ -145,10 +151,10 @@ option {
   font-size: 12px;
   margin-bottom: 20px;
   background-color: rgba(128, 163, 218, 0.3);
+}
 
-  .fa-money-bill-alt {
-    font-size: 40px;
-  }
+.card .fa-money-bill-alt {
+  font-size: 40px;
 }
 
 .currency-update {
@@ -169,7 +175,7 @@ option {
 .total-container {
   display: flex;
   align-items: center;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .total-section {
@@ -178,7 +184,7 @@ option {
   align-items: center;
 }
 
-@media screen and (width >=768px) {
+@media screen and (min-width: 768px) {
   .conversion-container {
     width: 768px;
   }
