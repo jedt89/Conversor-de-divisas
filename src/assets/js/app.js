@@ -114,6 +114,7 @@ const generateChart = (history) => {
       ]
     },
     options: {
+      responsive: true,
       scales: {
         y: { ticks: { color: 'white' } },
         x: { ticks: { color: 'white' } }
