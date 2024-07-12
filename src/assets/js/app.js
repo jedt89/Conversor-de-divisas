@@ -16,10 +16,10 @@ let currentIndicator = {};
 let currentMount = 0;
 
 const init = async () => {
+  hideInfo();
   const indicators = await getIndicators();
   renderIndicators(indicators);
   setListeners(indicators);
-  hideInfo();
 };
 
 const getIndicators = async (indicator) => {
