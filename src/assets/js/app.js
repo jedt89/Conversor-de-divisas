@@ -18,8 +18,9 @@ let currentMount = 0;
 const init = async () => {
   hideInfo();
   const indicators = await getIndicators();
-  renderIndicators(indicators);
-  setListeners(indicators);
+  const indicatorsList = indicators.filter(indicator => ['euro', 'dolar_intercambio', 'uf'].includes(indicator.codigo))
+  renderIndicators(indicatorsList);
+  setListeners(indicatorsList);
 };
 
 const getIndicators = async (indicator) => {
@@ -87,7 +88,7 @@ const updateCurrencyInfo = async () => {
 const convertCurrency = () => {
   if (clpInput.value != '' && currencySelect.value != '') {
     const result = currentMount / currentIndicator.valor;
-    totalContainer.textContent = `$${result}`;
+    totalContainer.textContent = `${result.toFixed(2)}`;
   }
 };
 
