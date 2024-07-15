@@ -31,6 +31,7 @@ const getIndicators = async (indicator) => {
       : Object.values(data).filter((item) => typeof item == 'object');
   } catch (error) {
     console.debug('Fetch error', error);
+    currencyInfo.textContent = 'Error al cargar los datos. Por favor, actualice la página.' 
     return [];
   }
 };
